@@ -1,0 +1,118 @@
+<h2>Layout do Dashboard</h2>
+<p class="subtitle">Qual estrutura visual você prefere para a tela principal?</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1a1a2e;border-radius:8px;padding:12px;font-size:11px;color:#ccc;">
+        <div class="mock-nav" style="background:#16213e;color:#e0e0e0;margin-bottom:8px;">💰 Controle Financeiro &nbsp;|&nbsp; Dashboard &nbsp; Transações &nbsp; Categorias</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;">
+          <div style="background:#0d3b2e;border:1px solid #1a6b4a;border-radius:6px;padding:8px;text-align:center;">
+            <div style="color:#4caf50;font-size:10px;">RECEITAS</div>
+            <div style="color:#4caf50;font-weight:bold;">R$ 5.000</div>
+          </div>
+          <div style="background:#3b0d0d;border:1px solid #8b1a1a;border-radius:6px;padding:8px;text-align:center;">
+            <div style="color:#f44336;font-size:10px;">DESPESAS</div>
+            <div style="color:#f44336;font-weight:bold;">R$ 3.200</div>
+          </div>
+          <div style="background:#0d1f3b;border:1px solid #1a3b6b;border-radius:6px;padding:8px;text-align:center;">
+            <div style="color:#2196f3;font-size:10px;">SALDO</div>
+            <div style="color:#2196f3;font-weight:bold;">R$ 1.800</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div style="background:#1e1e2e;border-radius:6px;padding:8px;">
+            <div style="color:#aaa;font-size:9px;margin-bottom:4px;">GRÁFICO POR CATEGORIA</div>
+            <div style="display:flex;align-items:center;justify-content:center;height:60px;">
+              <div style="width:55px;height:55px;border-radius:50%;background:conic-gradient(#e91e63 0% 35%,#ff9800 35% 60%,#2196f3 60% 80%,#4caf50 80% 100%);"></div>
+              <div style="margin-left:8px;font-size:8px;color:#ccc;line-height:1.8;">
+                <div>● Alimentação</div><div>● Transporte</div><div>● Lazer</div><div>● Outros</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#1e1e2e;border-radius:6px;padding:8px;">
+            <div style="color:#aaa;font-size:9px;margin-bottom:4px;">ÚLTIMAS TRANSAÇÕES</div>
+            <div style="font-size:8px;color:#ccc;">
+              <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #333;">Salário <span style="color:#4caf50">+5.000</span></div>
+              <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #333;">Supermercado <span style="color:#f44336">-450</span></div>
+              <div style="display:flex;justify-content:space-between;padding:2px 0;">Uber <span style="color:#f44336">-35</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Dark / Cards + Gráfico Pizza</h3>
+      <p>Tema escuro, 3 cards de resumo no topo, gráfico de pizza + lista de transações lado a lado</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#f5f7fa;border-radius:8px;padding:12px;font-size:11px;color:#333;">
+        <div class="mock-nav" style="background:#4f46e5;color:#fff;margin-bottom:8px;">💰 Controle Financeiro &nbsp;|&nbsp; Dashboard &nbsp; Transações &nbsp; Categorias</div>
+        <div style="display:flex;gap:6px;margin-bottom:8px;">
+          <div style="flex:1;background:#fff;border-left:4px solid #4caf50;border-radius:4px;padding:8px;box-shadow:0 1px 3px rgba(0,0,0,.1);">
+            <div style="color:#888;font-size:9px;">RECEITAS</div>
+            <div style="color:#4caf50;font-weight:bold;font-size:13px;">R$ 5.000</div>
+          </div>
+          <div style="flex:1;background:#fff;border-left:4px solid #f44336;border-radius:4px;padding:8px;box-shadow:0 1px 3px rgba(0,0,0,.1);">
+            <div style="color:#888;font-size:9px;">DESPESAS</div>
+            <div style="color:#f44336;font-weight:bold;font-size:13px;">R$ 3.200</div>
+          </div>
+          <div style="flex:1;background:#fff;border-left:4px solid #4f46e5;border-radius:4px;padding:8px;box-shadow:0 1px 3px rgba(0,0,0,.1);">
+            <div style="color:#888;font-size:9px;">SALDO</div>
+            <div style="color:#4f46e5;font-weight:bold;font-size:13px;">R$ 1.800</div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px;margin-bottom:6px;box-shadow:0 1px 3px rgba(0,0,0,.1);">
+          <div style="color:#555;font-size:9px;margin-bottom:4px;font-weight:bold;">GASTOS POR CATEGORIA</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div><div style="display:flex;justify-content:space-between;font-size:8px;"><span>🍕 Alimentação</span><span>R$ 1.200</span></div><div style="background:#e0e0e0;border-radius:2px;height:5px;"><div style="background:#e91e63;width:70%;height:5px;border-radius:2px;"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:8px;"><span>🚗 Transporte</span><span>R$ 800</span></div><div style="background:#e0e0e0;border-radius:2px;height:5px;"><div style="background:#ff9800;width:47%;height:5px;border-radius:2px;"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:8px;"><span>🎮 Lazer</span><span>R$ 400</span></div><div style="background:#e0e0e0;border-radius:2px;height:5px;"><div style="background:#2196f3;width:24%;height:5px;border-radius:2px;"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Claro / Cards com borda + Barras</h3>
+      <p>Tema claro moderno, cards com borda colorida lateral, gráfico de barras horizontais por categoria</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#fff;border-radius:8px;padding:12px;font-size:11px;color:#333;">
+        <div style="display:flex;gap:6px;height:120px;">
+          <div style="width:90px;background:#1e293b;border-radius:6px;padding:8px;color:#ccc;font-size:8px;">
+            <div style="color:#94a3b8;margin-bottom:8px;font-size:9px;font-weight:bold;">MENU</div>
+            <div style="padding:3px 0;border-left:2px solid #4f46e5;padding-left:4px;color:#fff;margin-bottom:2px;">📊 Dashboard</div>
+            <div style="padding:3px 0;color:#94a3b8;margin-bottom:2px;">💸 Transações</div>
+            <div style="padding:3px 0;color:#94a3b8;">🏷️ Categorias</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;">
+              <div style="background:#f0fdf4;border-radius:4px;padding:5px;text-align:center;"><div style="color:#16a34a;font-size:8px;">Receitas</div><div style="color:#16a34a;font-weight:bold;font-size:11px;">5.000</div></div>
+              <div style="background:#fef2f2;border-radius:4px;padding:5px;text-align:center;"><div style="color:#dc2626;font-size:8px;">Despesas</div><div style="color:#dc2626;font-weight:bold;font-size:11px;">3.200</div></div>
+              <div style="background:#eff6ff;border-radius:4px;padding:5px;text-align:center;"><div style="color:#2563eb;font-size:8px;">Saldo</div><div style="color:#2563eb;font-weight:bold;font-size:11px;">1.800</div></div>
+            </div>
+            <div style="background:#f8fafc;border-radius:4px;padding:5px;flex:1;">
+              <div style="font-size:8px;color:#64748b;margin-bottom:3px;">GRÁFICO</div>
+              <div style="display:flex;align-items:flex-end;gap:3px;height:35px;">
+                <div style="flex:1;background:#e91e63;border-radius:2px 2px 0 0;height:80%;"></div>
+                <div style="flex:1;background:#ff9800;border-radius:2px 2px 0 0;height:50%;"></div>
+                <div style="flex:1;background:#2196f3;border-radius:2px 2px 0 0;height:25%;"></div>
+                <div style="flex:1;background:#4caf50;border-radius:2px 2px 0 0;height:40%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Sidebar + Gráfico de Barras Vertical</h3>
+      <p>Menu lateral fixo, área de conteúdo à direita, gráfico de barras verticais por categoria</p>
+    </div>
+  </div>
+</div>

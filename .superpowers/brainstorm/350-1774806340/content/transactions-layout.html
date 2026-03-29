@@ -1,0 +1,84 @@
+<h2>Tela de Transações</h2>
+<p class="subtitle">Como você quer cadastrar e visualizar os lançamentos?</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#fff;border-radius:8px;padding:10px;font-size:10px;color:#333;display:flex;gap:6px;">
+        <div style="width:70px;background:#1e293b;border-radius:6px;padding:6px;color:#94a3b8;font-size:8px;">
+          <div style="color:#fff;font-size:8px;font-weight:bold;margin-bottom:6px;">💰 Menu</div>
+          <div style="color:#94a3b8;margin-bottom:3px;">📊 Dashboard</div>
+          <div style="border-left:2px solid #4f46e5;padding-left:3px;color:#fff;margin-bottom:3px;">💸 Transações</div>
+          <div style="color:#94a3b8;">🏷️ Categorias</div>
+        </div>
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="font-weight:bold;font-size:11px;">Transações — Março 2026</span>
+            <button style="background:#4f46e5;color:#fff;border:none;border-radius:4px;padding:3px 8px;font-size:9px;">+ Novo</button>
+          </div>
+          <div style="display:flex;gap:4px;margin-bottom:6px;">
+            <select style="font-size:8px;border:1px solid #e2e8f0;border-radius:4px;padding:2px 4px;">Todas</select>
+            <select style="font-size:8px;border:1px solid #e2e8f0;border-radius:4px;padding:2px 4px;">Categoria</select>
+          </div>
+          <table style="width:100%;border-collapse:collapse;font-size:8px;">
+            <thead><tr style="background:#f8fafc;color:#64748b;">
+              <th style="text-align:left;padding:3px;">Data</th>
+              <th style="text-align:left;padding:3px;">Descrição</th>
+              <th style="text-align:left;padding:3px;">Categoria</th>
+              <th style="text-align:right;padding:3px;">Valor</th>
+              <th style="padding:3px;"></th>
+            </tr></thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:3px;">01/03</td><td style="padding:3px;">Salário</td><td style="padding:3px;"><span style="background:#dcfce7;color:#16a34a;border-radius:3px;padding:1px 4px;">Receita</span></td><td style="padding:3px;text-align:right;color:#16a34a;">+5.000</td><td style="padding:3px;color:#94a3b8;">✏️</td></tr>
+              <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:3px;">05/03</td><td style="padding:3px;">Supermercado</td><td style="padding:3px;"><span style="background:#fce7f3;color:#be185d;border-radius:3px;padding:1px 4px;">Alimentação</span></td><td style="padding:3px;text-align:right;color:#dc2626;">-450</td><td style="padding:3px;color:#94a3b8;">✏️</td></tr>
+              <tr><td style="padding:3px;">08/03</td><td style="padding:3px;">Uber</td><td style="padding:3px;"><span style="background:#fff7ed;color:#c2410c;border-radius:3px;padding:1px 4px;">Transporte</span></td><td style="padding:3px;text-align:right;color:#dc2626;">-35</td><td style="padding:3px;color:#94a3b8;">✏️</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Tabela com filtros e botão "+ Novo"</h3>
+      <p>Lista em tabela, filtro por tipo/categoria, modal para cadastrar/editar</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#fff;border-radius:8px;padding:10px;font-size:10px;color:#333;display:flex;gap:6px;">
+        <div style="width:70px;background:#1e293b;border-radius:6px;padding:6px;color:#94a3b8;font-size:8px;">
+          <div style="color:#fff;font-size:8px;font-weight:bold;margin-bottom:6px;">💰 Menu</div>
+          <div style="color:#94a3b8;margin-bottom:3px;">📊 Dashboard</div>
+          <div style="border-left:2px solid #4f46e5;padding-left:3px;color:#fff;margin-bottom:3px;">💸 Transações</div>
+          <div style="color:#94a3b8;">🏷️ Categorias</div>
+        </div>
+        <div style="flex:1;display:flex;gap:4px;">
+          <div style="flex:1;">
+            <div style="font-weight:bold;font-size:10px;margin-bottom:4px;">Lançamentos</div>
+            <div style="background:#f8fafc;border-radius:5px;padding:5px;margin-bottom:3px;border-left:3px solid #16a34a;font-size:8px;">
+              <div style="font-weight:bold;">Salário</div>
+              <div style="color:#64748b;">01/03 · Receita</div>
+              <div style="color:#16a34a;font-weight:bold;">+R$ 5.000</div>
+            </div>
+            <div style="background:#f8fafc;border-radius:5px;padding:5px;margin-bottom:3px;border-left:3px solid #e91e63;font-size:8px;">
+              <div style="font-weight:bold;">Supermercado</div>
+              <div style="color:#64748b;">05/03 · Alimentação</div>
+              <div style="color:#dc2626;font-weight:bold;">-R$ 450</div>
+            </div>
+          </div>
+          <div style="width:90px;background:#f8fafc;border-radius:6px;padding:6px;font-size:8px;">
+            <div style="font-weight:bold;margin-bottom:4px;font-size:9px;">Novo Lançamento</div>
+            <div style="margin-bottom:3px;"><div style="color:#64748b;font-size:7px;">Tipo</div><select style="width:100%;font-size:7px;border:1px solid #e2e8f0;border-radius:3px;padding:1px;">Despesa</select></div>
+            <div style="margin-bottom:3px;"><div style="color:#64748b;font-size:7px;">Valor</div><input style="width:100%;font-size:7px;border:1px solid #e2e8f0;border-radius:3px;padding:1px;" placeholder="R$ 0,00"/></div>
+            <div style="margin-bottom:3px;"><div style="color:#64748b;font-size:7px;">Categoria</div><select style="width:100%;font-size:7px;border:1px solid #e2e8f0;border-radius:3px;padding:1px;">Alimentação</select></div>
+            <button style="width:100%;background:#4f46e5;color:#fff;border:none;border-radius:3px;padding:3px;font-size:7px;">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Cards + Formulário lateral inline</h3>
+      <p>Lista em cards, formulário de cadastro fixo na lateral direita (sem modal)</p>
+    </div>
+  </div>
+</div>

@@ -181,7 +181,7 @@ scripts/
 
 ## Restrições e Decisões
 
-- **Usuário único:** sem cadastro público, usuário criado via `npm run seed`
+- **Usuário único:** sem cadastro público, usuário criado via `npm run seed` — credenciais definidas nas variáveis de ambiente `SEED_USERNAME` e `SEED_PASSWORD`
 - **Período fixo:** dashboard e listagem sempre exibem o mês atual (sem filtro de período)
 - **Sem categorias padrão:** usuário cria todas as categorias do zero
 - **SQLite local:** banco de dados armazenado em `data/app.db` na raiz do projeto
