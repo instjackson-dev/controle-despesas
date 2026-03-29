@@ -1,7 +1,6 @@
-// next.config.ts
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
+// next.config.mjs
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   serverExternalPackages: ['better-sqlite3', '@react-pdf/renderer'],
 }
 
