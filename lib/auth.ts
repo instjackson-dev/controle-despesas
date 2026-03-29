@@ -6,6 +6,10 @@ import { users } from './db/schema'
 import { eq } from 'drizzle-orm'
 import bcrypt from 'bcryptjs'
 
+if (!process.env.NEXTAUTH_SECRET) {
+  throw new Error('NEXTAUTH_SECRET environment variable is not set')
+}
+
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
