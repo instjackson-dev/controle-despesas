@@ -5,16 +5,24 @@ import * as schema from './schema'
 import path from 'path'
 import fs from 'fs'
 
-const dbPath = process.env.DATABASE_URL ?? path.join(process.cwd(), 'data', 'app.db')
+function createDb() {
+  const dbPath = process.env.DATABASE_URL ?? path.join(process.cwd(), 'data', 'app.db')
 
-if (dbPath !== ':memory:') {
-  const dir = path.dirname(dbPath)
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+  if (dbPath !== ':memory:') {
+    const dir = path.dirname(dbPath)
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+  }
+
+  const sqlite = new Database(dbPath)
+  sqlite.pragma('journal_mode = WAL')
+  sqlite.pragma('foreign_keys = ON')
+
+  return drizzle(sqlite, { schema })
 }
 
-const sqlite = new Database(dbPath)
-sqlite.pragma('journal_mode = WAL')
-sqlite.pragma('foreign_keys = ON')
+declare global {
+  // eslint-disable-next-line no-var
+  var __db: ReturnType<typeof createDb> | undefined
+}
 
-export const db = drizzle(sqlite, { schema })
-export { sqlite }
+export const db = globalThis.__db ?? (globalThis.__db = createDb())
