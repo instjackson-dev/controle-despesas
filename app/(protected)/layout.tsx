@@ -8,9 +8,11 @@ export default async function ProtectedLayout({ children }: { children: React.Re
   const session = await getServerSession(authOptions)
   if (!session) redirect('/login')
 
+  const isAdmin = session.user.name === process.env.SEED_USERNAME
+
   return (
     <div className="flex h-screen bg-slate-50">
-      <Sidebar username={session.user.name ?? ''} />
+      <Sidebar username={session.user.name ?? ''} isAdmin={isAdmin} />
       <main className="flex-1 overflow-auto">{children}</main>
     </div>
   )

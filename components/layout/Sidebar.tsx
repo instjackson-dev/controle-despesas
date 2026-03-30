@@ -11,9 +11,8 @@ const navItems = [
   { href: '/categorias', label: 'Categorias', icon: '🏷️' },
 ]
 
-export default function Sidebar({ username }: { username: string }) {
+export default function Sidebar({ username, isAdmin }: { username: string; isAdmin: boolean }) {
   const pathname = usePathname()
-  const isAdmin = username === process.env.NEXT_PUBLIC_ADMIN_USERNAME
 
   return (
     <aside className="w-56 bg-slate-800 text-slate-300 flex flex-col h-screen sticky top-0">
