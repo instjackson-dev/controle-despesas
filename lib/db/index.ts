@@ -25,9 +25,15 @@ function createDb() {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       username TEXT NOT NULL UNIQUE,
       password_hash TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'ativo' CHECK(status IN ('pendente', 'ativo', 'bloqueado')),
       created_at TEXT NOT NULL DEFAULT (datetime('now'))
     )
   `)
+  // migration: add status column to existing databases
+  const cols = sqlite.prepare(`PRAGMA table_info(users)`).all() as { name: string }[]
+  if (!cols.find(c => c.name === 'status')) {
+    sqlite.exec(`ALTER TABLE users ADD COLUMN status TEXT NOT NULL DEFAULT 'ativo' CHECK(status IN ('pendente', 'ativo', 'bloqueado'))`)
+  }
   sqlite.exec(`
     CREATE TABLE IF NOT EXISTS categories (
       id INTEGER PRIMARY KEY AUTOINCREMENT,

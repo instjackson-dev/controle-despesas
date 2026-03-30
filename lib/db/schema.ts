@@ -6,6 +6,7 @@ export const users = sqliteTable('users', {
   id: int('id').primaryKey({ autoIncrement: true }),
   username: text('username').notNull().unique(),
   passwordHash: text('password_hash').notNull(),
+  status: text('status', { enum: ['pendente', 'ativo', 'bloqueado'] }).notNull().default('ativo'),
   createdAt: text('created_at').notNull().default(sql`(datetime('now'))`),
 })
 
