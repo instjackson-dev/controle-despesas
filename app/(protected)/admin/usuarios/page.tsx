@@ -30,11 +30,9 @@ export default function AdminUsuariosPage() {
   const [users, setUsers] = useState<User[]>([])
   const [loading, setLoading] = useState(true)
 
-  const adminUser = process.env.NEXT_PUBLIC_ADMIN_USERNAME
-
   useEffect(() => {
     if (status === 'loading') return
-    if (!session || session.user.name !== adminUser) {
+    if (!session) {
       router.push('/')
       return
     }
