@@ -9,7 +9,7 @@
     "lint": "next lint",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "seed": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/seed.ts"
+    "seed": "ts-node scripts/seed.ts"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.2",
