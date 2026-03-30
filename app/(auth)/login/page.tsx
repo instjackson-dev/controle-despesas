@@ -26,7 +26,7 @@ export default function LoginPage() {
 
     setLoading(false)
     if (!result?.ok || result?.error) {
-      setError('Usuário ou senha inválidos.')
+      setError(`Erro: ok=${result?.ok} error=${result?.error} status=${result?.status}`)
     } else {
       window.location.href = '/'
     }
