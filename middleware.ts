@@ -6,15 +6,11 @@ export async function middleware(req: NextRequest) {
   const token = await getToken({
     req,
     secret: process.env.NEXTAUTH_SECRET,
-    secureCookie: false,
+    cookieName: 'next-auth.session-token',
   })
 
   if (!token) {
-    const baseUrl = process.env.NEXTAUTH_URL?.startsWith('http')
-      ? process.env.NEXTAUTH_URL
-      : `https://${process.env.NEXTAUTH_URL}`
-    const loginUrl = new URL('/login', baseUrl)
-    return NextResponse.redirect(loginUrl)
+    return NextResponse.redirect(new URL('/login', req.nextUrl.origin))
   }
 
   return NextResponse.next()
