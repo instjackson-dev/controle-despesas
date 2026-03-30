@@ -39,7 +39,7 @@ export default function AdminUsuariosPage() {
     fetch('/api/admin/users')
       .then(r => r.json())
       .then(data => { setUsers(data); setLoading(false) })
-  }, [session, status, router, adminUser])
+  }, [session, status, router])
 
   async function updateStatus(id: number, newStatus: string) {
     await fetch('/api/admin/users', {
