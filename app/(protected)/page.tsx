@@ -5,10 +5,12 @@ import { getDashboardData } from '@/lib/db/dashboard'
 import SummaryCards from '@/components/dashboard/SummaryCards'
 import CategoryBarChart from '@/components/dashboard/CategoryBarChart'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions)
-  const userId = Number(session!.user.id)
+  if (!session) redirect('/login')
+  const userId = Number(session.user.id)
   const month = new Date().toISOString().slice(0, 7)
   const data = getDashboardData(userId, month)
 
