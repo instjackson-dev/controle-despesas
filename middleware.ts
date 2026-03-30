@@ -10,8 +10,10 @@ export async function middleware(req: NextRequest) {
   })
 
   if (!token) {
-    const loginUrl = new URL('/login', process.env.NEXTAUTH_URL ?? req.url)
-    loginUrl.searchParams.set('callbackUrl', process.env.NEXTAUTH_URL ?? req.url)
+    const baseUrl = process.env.NEXTAUTH_URL?.startsWith('http')
+      ? process.env.NEXTAUTH_URL
+      : `https://${process.env.NEXTAUTH_URL}`
+    const loginUrl = new URL('/login', baseUrl)
     return NextResponse.redirect(loginUrl)
   }
 
