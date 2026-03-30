@@ -1,17 +1,14 @@
-// app/(auth)/login/page.tsx
+// app/(auth)/registro/page.tsx
 'use client'
 
-import { signIn } from 'next-auth/react'
-import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-export default function LoginPage() {
+export default function RegistroPage() {
   const router = useRouter()
-  const searchParams = useSearchParams()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const isPendente = searchParams.get('msg') === 'pendente'
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -21,17 +18,18 @@ export default function LoginPage() {
     const username = (form.elements.namedItem('username') as HTMLInputElement).value
     const password = (form.elements.namedItem('password') as HTMLInputElement).value
 
-    const result = await signIn('credentials', {
-      username,
-      password,
-      redirect: false,
+    const res = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
     })
 
     setLoading(false)
-    if (!result?.ok || result?.error) {
-      setError('Usuário ou senha inválidos.')
+    if (res.ok) {
+      router.push('/login?msg=pendente')
     } else {
-      window.location.href = '/'
+      const data = await res.json()
+      setError(data.error ?? 'Erro ao criar conta.')
     }
   }
 
@@ -39,12 +37,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-slate-100">
       <div className="bg-white rounded-xl shadow-md p-8 w-full max-w-sm">
         <h1 className="text-2xl font-bold text-slate-800 mb-1">💰 Controle Financeiro</h1>
-        <p className="text-slate-500 text-sm mb-6">Faça login para continuar</p>
-        {isPendente && (
-          <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 text-sm rounded-lg px-3 py-2 mb-4">
-            Conta criada! Aguarde a aprovação do administrador.
-          </div>
-        )}
+        <p className="text-slate-500 text-sm mb-6">Crie sua conta</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -62,6 +55,7 @@ export default function LoginPage() {
               name="password"
               type="password"
               required
+              minLength={6}
               className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
@@ -73,14 +67,14 @@ export default function LoginPage() {
             disabled={loading}
             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg py-2 text-sm transition disabled:opacity-50"
           >
-            {loading ? 'Entrando...' : 'Entrar'}
+            {loading ? 'Criando conta...' : 'Criar conta'}
           </button>
         </form>
 
         <p className="text-center text-sm text-slate-500 mt-4">
-          Não tem conta?{' '}
-          <Link href="/registro" className="text-indigo-600 hover:underline">
-            Criar conta
+          Já tem conta?{' '}
+          <Link href="/login" className="text-indigo-600 hover:underline">
+            Entrar
           </Link>
         </p>
       </div>

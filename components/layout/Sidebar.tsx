@@ -13,6 +13,7 @@ const navItems = [
 
 export default function Sidebar({ username }: { username: string }) {
   const pathname = usePathname()
+  const isAdmin = username === process.env.NEXT_PUBLIC_ADMIN_USERNAME
 
   return (
     <aside className="w-56 bg-slate-800 text-slate-300 flex flex-col h-screen sticky top-0">
@@ -39,6 +40,21 @@ export default function Sidebar({ username }: { username: string }) {
           )
         })}
       </nav>
+
+      {isAdmin && (
+        <div className="px-3 pb-2">
+          <Link
+            href="/admin/usuarios"
+            className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition ${
+              pathname === '/admin/usuarios'
+                ? 'bg-indigo-600 text-white'
+                : 'hover:bg-slate-700 text-slate-300'
+            }`}
+          >
+            <span>👥</span> Usuários
+          </Link>
+        </div>
+      )}
 
       <div className="p-4 border-t border-slate-700">
         <p className="text-xs text-slate-400 mb-2">Olá, {username}</p>
