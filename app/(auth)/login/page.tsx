@@ -25,10 +25,10 @@ export default function LoginPage() {
     })
 
     setLoading(false)
-    if (result?.error) {
+    if (!result?.ok || result?.error) {
       setError('Usuário ou senha inválidos.')
     } else {
-      router.push('/')
+      window.location.href = '/'
     }
   }
 
