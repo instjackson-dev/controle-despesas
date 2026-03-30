@@ -1,7 +1,7 @@
-// next.config.mjs
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  serverExternalPackages: ['better-sqlite3', '@react-pdf/renderer'],
+  experimental: {
+    serverComponentsExternalPackages: ['bcryptjs']
+  }
 }
 
 export default nextConfig
